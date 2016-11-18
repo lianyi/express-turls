@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
     md5 = require('md5');
 
 // Connect to database
-mongoose.connect(process.env.MONGOLAB_URI);
+mongoose.connect(process.env.MONGOLAB_URI || process.env.MONGODB_URI);
 mongoose.connection.on('error', function (err) {
         console.error('MongoDB connection error: ' + err);
         process.exit(-1);
